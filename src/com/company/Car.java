@@ -30,19 +30,19 @@ public class Car {
     }
 
     //method
-    public double getPriceDiscount() {
-        this.priceReduced = this.price * producer.getDiscount();
-        return priceReduced;
+    public void getPriceDiscount() {
+        this.priceReduced = this.price * (1 - producer.getDiscount());
+        System.out.println(priceReduced);
     }
 
 
-
+/*
     public double getConsumptionIncreased() {   //Better as Boolean? hasConsumptionIncreased()
         if (amountDriven>50000) {
             return this.consumption*1.098;
         }
         return this.consumption;
-    }
+    }*/
 
     //getter setter
 

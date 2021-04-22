@@ -2,7 +2,7 @@ package com.company;
 
 public class Engine {
     //instance
-    private enum TYPE {DIESEL, GAS}
+    public enum TYPE {DIESEL, GAS}
     private int horsePower;
     private TYPE type;
 
