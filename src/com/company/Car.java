@@ -5,23 +5,24 @@ public class Car {
     private String color;
     private int velocityMax;
     private double price;
-    private double priceDiscount; //price - producer.discount
+    private double priceReduced; //price * producer.discount
     private double consumption;
     private double consumptionIncreased; //consumption * 1.098
     //private double amountFuel;
+    //Konstante for limes to increase consumption (look in function hasConsumptionIncrease)
     private double amountDriven;
     private Engine engine;
     private Producer producer;
 
     //constructor
-    public Car(String color, int velocityMax, double price, double priceDiscount, double consumption, double consumptionIncreased,
-               Engine engine) {
+    public Car(String color, int velocityMax, double price, double priceReduced, double consumption,
+               Engine engine, Producer producer) {
         this.color = color;
         this.velocityMax = velocityMax;
         this.price = price;
-        this.priceDiscount = priceDiscount;
+        this.priceReduced = priceReduced;
         this.consumption = consumption;
-        this.consumptionIncreased = consumptionIncreased;
+            //this.consumptionIncreased = consumptionIncreased;
         //Engine
         this.engine = engine;
         //Producer
@@ -29,17 +30,88 @@ public class Car {
     }
 
     //method
-
-    public double getPriceDiscount(double price, double discount) {
-        this.priceDiscount = this.price - this.producer.discount;
-        return priceDiscount;
-    }
-
-    public double hasConsumptionIncreased() {
-        if (amountDriven>50000)
-
+    public double getPriceDiscount() {
+        this.priceReduced = this.price * producer.getDiscount();
+        return priceReduced;
     }
 
 
 
+    public double getConsumptionIncreased() {   //Better as Boolean? hasConsumptionIncreased()
+        if (amountDriven>50000) {
+            return this.consumption*1.098;
+        }
+        return this.consumption;
+    }
+
+    //getter setter
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getVelocityMax() {
+        return velocityMax;
+    }
+
+    public void setVelocityMax(int velocityMax) {
+        this.velocityMax = velocityMax;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPriceReduced() {
+        return priceReduced;
+    }
+
+    public void setPriceReduced(double priceReduced) {
+        this.priceReduced = priceReduced;
+    }
+
+    public double getConsumption() {
+        return consumption;
+    }
+
+    public void setConsumption(double consumption) {
+        this.consumption = consumption;
+    }
+
+    public void setConsumptionIncreased(double consumptionIncreased) {
+        this.consumptionIncreased = consumptionIncreased;
+    }
+
+    public double getAmountDriven() {
+        return amountDriven;
+    }
+
+    public void setAmountDriven(double amountDriven) {
+        this.amountDriven = amountDriven;
+    }
+
+
+    public Producer getProducer() {
+        return producer;
+    }
+
+    public void setProducer(Producer producer) {
+        this.producer = producer;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
 }
