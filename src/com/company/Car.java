@@ -15,12 +15,11 @@ public class Car {
     private Producer producer;
 
     //constructor
-    public Car(String color, int velocityMax, double price, double priceReduced, double consumption,
+    public Car(String color, int velocityMax, double price, double consumption,
                Engine engine, Producer producer) {
         this.color = color;
         this.velocityMax = velocityMax;
         this.price = price;
-        this.priceReduced = priceReduced;
         this.consumption = consumption;
             //this.consumptionIncreased = consumptionIncreased;
         //Engine
